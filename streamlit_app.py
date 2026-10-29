@@ -154,7 +154,8 @@ def render_answer(r):
         st.markdown(r["answer"])
         if r["pages"]:
             pages = ", ".join(str(p) for p in sorted(set(r["pages"])))
-            st.caption(f"Source: WHO Recommendations on Antenatal Care (2016), pages {pages}")
+            label = "page" if len(set(r["pages"])) == 1 else "pages"
+            st.caption(f"Source: WHO Recommendations on Antenatal Care (2016), {label} {pages}")
 
 
 with st.sidebar:
